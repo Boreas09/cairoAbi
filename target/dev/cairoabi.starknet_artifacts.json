@@ -1,0 +1,1 @@
+{"version":1,"contracts":[{"id":"k6253i2gobnlo","package_name":"cairoabi","contract_name":"Example","module_path":"cairoabi::Example","artifacts":{"sierra":"cairoabi_Example.contract_class.json","casm":"cairoabi_Example.compiled_contract_class.json"}}]}
