@@ -11,3 +11,4 @@ sierra = true
 
 [dependencies]
 starknet = "2.6.3"
+alexandria_math = { git = "https://github.com/keep-starknet-strange/alexandria.git", rev = "e7b6957" }
