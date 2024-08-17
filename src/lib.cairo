@@ -1,7 +1,7 @@
 use starknet::{ContractAddress, ClassHash, EthAddress};
 use alexandria_math::i257::i257;
 
-#[derive(Serde, Copy, Drop)]
+#[derive(Drop, Serde, Clone)]
 struct exampleStruct1 {
     firstVal: u256,
     secondVal: EthAddress,
@@ -13,9 +13,11 @@ struct exampleStruct2 {
     secondVal: u128,
     thirdVal: u256,
     fourthVal: felt252,
+    fifthVal: bytes31,
     booleanVal: bool,
     firstArr: Array<u128>,
     secondArr: Array<u256>,
+    thirdArr: Array<bytes31>,
 }
 
 #[derive(Drop, Serde, Clone)]
@@ -25,9 +27,11 @@ struct exampleStruct3 {
     secondVal: u128,
     thirdVal: u256,
     fourthVal: felt252,
+    fifthVal: bytes31,
     booleanVal: bool,
     firstArr: Array<u128>,
     secondArr: Array<u256>,
+    thirdArr: Array<bytes31>,
 }
 
 #[derive(Drop, Serde, Clone)]
@@ -37,9 +41,11 @@ struct exampleStruct4 {
     secondVal: u128,
     thirdVal: u256,
     fourthVal: felt252,
+    fifthVal: bytes31,
     booleanVal: bool,
     firstArr: Array<u128>,
     secondArr: Array<u256>,
+    thirdArr: Array<bytes31>,
 }
 
 #[starknet::interface]
@@ -56,6 +62,7 @@ trait IExample<TContractState> {
     ) -> (exampleStruct2, exampleStruct3);
     fn useExampleStruct4(self: @TContractState, strFour: exampleStruct4) -> exampleStruct4;
     fn useAlexandria1(self: @TContractState, alex: i257) -> i257;
+    fn useBytes31(self: @TContractState, byte31: bytes31) -> bytes31;
 }
 
 #[starknet::contract]
@@ -101,6 +108,9 @@ mod Example {
         }
         fn useAlexandria1(self: @ContractState, alex: i257) -> i257 {
             return alex;
+        }
+        fn useBytes31(self: @ContractState, byte31: bytes31) -> bytes31 {
+            return byte31;
         }
     }
 }
