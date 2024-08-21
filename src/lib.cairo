@@ -60,6 +60,7 @@ trait IExample<TContractState> {
     fn addresses(
         self: @TContractState, cAddress: ContractAddress, eAddress: EthAddress
     ) -> (ContractAddress, EthAddress);
+    fn useUsize(self: @TContractState, usize: usize) -> usize;
     fn classHash(self: @TContractState, cHash: ClassHash) -> ClassHash;
     fn useExampleStruct1(self: @TContractState, str: exampleStruct1) -> exampleStruct1;
     fn useExampleStruct2(self: @TContractState, strTwo: exampleStruct2) -> exampleStruct2;
@@ -67,8 +68,13 @@ trait IExample<TContractState> {
         self: @TContractState, strTwo: exampleStruct2, strThree: exampleStruct3
     ) -> (exampleStruct2, exampleStruct3);
     fn useExampleStruct4(self: @TContractState, strFour: exampleStruct4) -> exampleStruct4;
-    fn useAlexandria1(self: @TContractState, alex: i257) -> i257;
+    fn useAlexandriai257(self: @TContractState, alex: i257) -> i257;
     fn useBytes31(self: @TContractState, byte31: bytes31) -> bytes31;
+    fn useSignedIntegeri8(self: @TContractState, signedIntegeri8: i8) -> i8;
+    fn useSignedIntegeri16(self: @TContractState, signedIntegeri16: i16) -> i16;
+    fn useSignedIntegeri32(self: @TContractState, signedIntegeri32: i32) -> i32;
+    fn useSignedIntegeri64(self: @TContractState, signedIntegeri64: i64) -> i64;
+    fn useSignedIntegeri128(self: @TContractState, signedIntegeri128: i128) -> i128;
 }
 
 #[starknet::contract]
@@ -95,6 +101,9 @@ mod Example {
         ) -> (ContractAddress, EthAddress) {
             return (cAddress, eAddress);
         }
+        fn useUsize(self: @ContractState, usize: usize) -> usize {
+            return usize;
+        }
         fn classHash(self: @ContractState, cHash: ClassHash) -> ClassHash {
             return cHash;
         }
@@ -112,11 +121,26 @@ mod Example {
         fn useExampleStruct4(self: @ContractState, strFour: exampleStruct4) -> exampleStruct4 {
             return strFour;
         }
-        fn useAlexandria1(self: @ContractState, alex: i257) -> i257 {
+        fn useAlexandriai257(self: @ContractState, alex: i257) -> i257 {
             return alex;
         }
         fn useBytes31(self: @ContractState, byte31: bytes31) -> bytes31 {
             return byte31;
+        }
+        fn useSignedIntegeri8(self: @ContractState, signedIntegeri8: i8) -> i8 {
+            return signedIntegeri8;
+        }
+        fn useSignedIntegeri16(self: @ContractState, signedIntegeri16: i16) -> i16 {
+            return signedIntegeri16;
+        }
+        fn useSignedIntegeri32(self: @ContractState, signedIntegeri32: i32) -> i32 {
+            return signedIntegeri32;
+        }
+        fn useSignedIntegeri64(self: @ContractState, signedIntegeri64: i64) -> i64 {
+            return signedIntegeri64;
+        }
+        fn useSignedIntegeri128(self: @ContractState, signedIntegeri128: i128) -> i128 {
+            return signedIntegeri128;
         }
     }
 }
