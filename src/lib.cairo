@@ -1,4 +1,5 @@
 use starknet::{ContractAddress, ClassHash, EthAddress, StorageAddress};
+use core::{integer, integer::{u512}};
 use alexandria_math::i257::i257;
 
 #[derive(Drop, Serde, Clone)]
@@ -62,6 +63,7 @@ trait IExample<TContractState> {
     ) -> (ContractAddress, EthAddress);
     fn useUsize(self: @TContractState, usize: usize) -> usize;
     fn useStorageAddress(self: @TContractState, storageAddress: StorageAddress) -> StorageAddress;
+    fn useU512(self: @TContractState, u512: u512) -> u512;
     fn classHash(self: @TContractState, cHash: ClassHash) -> ClassHash;
     fn useExampleStruct1(self: @TContractState, str: exampleStruct1) -> exampleStruct1;
     fn useExampleStruct2(self: @TContractState, strTwo: exampleStruct2) -> exampleStruct2;
@@ -81,6 +83,7 @@ trait IExample<TContractState> {
 #[starknet::contract]
 mod Example {
     use starknet::{ContractAddress, EthAddress, ClassHash, StorageAddress};
+    use core::{integer, integer::{u512}};
     use alexandria_math::i257::i257;
     use super::exampleStruct1;
     use super::exampleStruct2;
@@ -109,6 +112,9 @@ mod Example {
             self: @ContractState, storageAddress: StorageAddress
         ) -> StorageAddress {
             return storageAddress;
+        }
+        fn useU512(self: @ContractState, u512: u512) -> u512 {
+            return u512;
         }
         fn classHash(self: @ContractState, cHash: ClassHash) -> ClassHash {
             return cHash;
