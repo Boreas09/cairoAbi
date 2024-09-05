@@ -78,6 +78,7 @@ trait IExample<TContractState> {
     fn useSignedIntegeri32(self: @TContractState, signedIntegeri32: i32) -> i32;
     fn useSignedIntegeri64(self: @TContractState, signedIntegeri64: i64) -> i64;
     fn useSignedIntegeri128(self: @TContractState, signedIntegeri128: i128) -> i128;
+    fn arrayOfArray(self: @TContractState, arr: Array<Array<u256>>) -> Array<Array<u256>>;
 }
 
 #[starknet::contract]
@@ -153,6 +154,9 @@ mod Example {
         }
         fn useSignedIntegeri128(self: @ContractState, signedIntegeri128: i128) -> i128 {
             return signedIntegeri128;
+        }
+        fn arrayOfArray(self: @ContractState, arr: Array<Array<u256>>) -> Array<Array<u256>> {
+            return arr;
         }
     }
 }
