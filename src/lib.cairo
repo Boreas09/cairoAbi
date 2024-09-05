@@ -21,6 +21,8 @@ struct exampleStruct2 {
     thirdArr: Array<bytes31>,
     firstOpt: Option<usize>,
     firstSpan: Span<usize>,
+    arrOfTuple: Array<(u256, u256)>,
+    arrOfArr: Array<Array<u256>>
 }
 
 #[derive(Drop, Serde, Clone)]
@@ -37,6 +39,8 @@ struct exampleStruct3 {
     thirdArr: Array<bytes31>,
     firstOpt: Option<u256>,
     firstSpan: Span<u256>,
+    arrOfTuple: Array<(u256, u256)>,
+    arrOfArr: Array<Array<u256>>
 }
 
 #[derive(Drop, Serde, Clone)]
@@ -53,6 +57,8 @@ struct exampleStruct4 {
     thirdArr: Array<bytes31>,
     firstOpt: Option<u128>,
     firstSpan: Span<u128>,
+    arrOfTuple: Array<(u256, u256)>,
+    arrOfArr: Array<Array<u256>>
 }
 
 #[starknet::interface]
