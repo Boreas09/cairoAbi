@@ -46,6 +46,7 @@ struct exampleStruct3 {
 #[derive(Drop, Serde, Clone)]
 struct exampleStruct4 {
     str: Array<exampleStruct3>,
+    str2: exampleStruct3,
     firstVal: u64,
     secondVal: u128,
     thirdVal: u256,
