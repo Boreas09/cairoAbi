@@ -22,7 +22,6 @@ struct exampleStruct2 {
     firstOpt: Option<usize>,
     firstSpan: Span<usize>,
     arrOfTuple: Array<(u256, u256)>,
-    arrOfArr: Array<Array<u256>>
 }
 
 #[derive(Drop, Serde, Clone)]
@@ -40,7 +39,6 @@ struct exampleStruct3 {
     firstOpt: Option<u256>,
     firstSpan: Span<u256>,
     arrOfTuple: Array<(u256, u256)>,
-    arrOfArr: Array<Array<u256>>
 }
 
 #[derive(Drop, Serde, Clone)]
@@ -59,7 +57,6 @@ struct exampleStruct4 {
     firstOpt: Option<u128>,
     firstSpan: Span<u128>,
     arrOfTuple: Array<(u256, u256)>,
-    arrOfArr: Array<Array<u256>>
 }
 
 #[starknet::interface]
@@ -85,7 +82,6 @@ trait IExample<TContractState> {
     fn useSignedIntegeri32(self: @TContractState, signedIntegeri32: i32) -> i32;
     fn useSignedIntegeri64(self: @TContractState, signedIntegeri64: i64) -> i64;
     fn useSignedIntegeri128(self: @TContractState, signedIntegeri128: i128) -> i128;
-    fn arrayOfArray(self: @TContractState, arr: Array<Array<u256>>) -> Array<Array<u256>>;
     fn arrayOfTuple(
         self: @TContractState, arrTuple: Array<(felt252, felt252)>
     ) -> Array<(felt252, felt252)>;
@@ -164,9 +160,6 @@ mod Example {
         }
         fn useSignedIntegeri128(self: @ContractState, signedIntegeri128: i128) -> i128 {
             return signedIntegeri128;
-        }
-        fn arrayOfArray(self: @ContractState, arr: Array<Array<u256>>) -> Array<Array<u256>> {
-            return arr;
         }
         fn arrayOfTuple(
             self: @ContractState, arrTuple: Array<(felt252, felt252)>
